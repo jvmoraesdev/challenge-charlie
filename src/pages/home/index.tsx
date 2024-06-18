@@ -1,10 +1,12 @@
 import React from "react";
-import config from '../../config'
+import config from '../../config/config'
 
-export default function Home() {
+const Home: React.FC = () => {
     return (
         <div>
-            <h1>Home</h1>
+            <h1>Home - {config.APP_NAME}</h1>
         </div>
     )
 }
+
+export default Home;
