@@ -7,8 +7,13 @@ const devConfig: webpack.Configuration = {
     mode: "development",
     devServer: {
         historyApiFallback: true,
+        hot: true,
     },
     devtool: 'inline-source-map',
+    watchOptions: {
+        poll: 1000,
+        aggregateTimeout: 300
+    },
     stats: 'minimal'
 };
 

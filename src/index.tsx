@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import Home from './pages/home/index'
 
-const root = ReactDOM.createRoot(document.querySelector('#root'));
+const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
 
 root.render(
     <React.StrictMode>
