@@ -9,8 +9,11 @@ import Input from "../../components/Input";
 import { ColorTheme, TemperaturaScale, WindDirection } from "../../interfaces/types";
 import { ITemperature } from "../../interfaces/api.interface";
 import TemperatureView from "../../components/TemperatureView";
+import { useBingImageContext } from "../../stores/HomeBackgroundProvider";
 
 const Home: React.FC = () => {
+    const { backgroundImage } = useBingImageContext();
+
     const colorTheme: ColorTheme = 'red'
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius')
     const temperature: ITemperature = {
@@ -31,7 +34,7 @@ const Home: React.FC = () => {
 
     return (
         <Main
-            backgroundImage=""
+            backgroundImage={backgroundImage || ''}
         >
             <Card>
                 <Input />
