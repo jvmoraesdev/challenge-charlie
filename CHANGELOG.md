@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.2] - 2024-06-20
+
+### Added
+- Created app-server folder
+- Migrate front to app-web folder
+
+## [0.4.1] - 2024-06-20
+
 ### Added
 - WIP: bing api request
 - WIP: stores and context
