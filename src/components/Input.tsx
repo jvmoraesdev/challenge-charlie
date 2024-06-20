@@ -3,7 +3,7 @@ import React from 'react'
 import { COLORS } from '../assets/colors'
 import { screenBreakpoints } from '../assets/screenBreakpoints'
 import { IChildrenProps } from '../interfaces/childrenProps.interface'
-import { ReactComponent as CompassIcon } from '../assets/icons/44.svg'
+import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg'
 
 const InputContainer = styled.input`
     width: 100%;

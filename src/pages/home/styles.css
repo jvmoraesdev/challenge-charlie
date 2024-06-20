@@ -1,0 +1,42 @@
+.row{
+    flex: 1;
+}
+
+.row.primary{
+    flex: 3;
+}
+
+.row.secondary{
+    flex: 1;
+}
+
+.row.tertiary{
+    flex: 1;
+}
+
+.column{
+    flex-direction: column;
+    height: 100%;
+}
+
+.column.primary{
+    flex: 6;
+}
+
+.column.secondary{
+    flex: 4;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.left-view{
+    width: 60%;
+}
+
+.icon{
+    height: 70%;
+}
+
+.teste{
+    flex-direction: column;
+}

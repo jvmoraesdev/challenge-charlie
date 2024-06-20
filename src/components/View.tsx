@@ -1,22 +1,34 @@
 import styled from 'styled-components'
 import React from 'react'
 import { IViewProps } from '../interfaces/view.interface'
+import { COLORS, COLORTHEME } from '../assets/colors'
 
 const ViewContainer = styled.div<IViewProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blue;
-    flex-direction: ${props => props.flexDirection || 'row'};;
-    width: ${props => props.width || '100%'};
-    height: ${props => props.height || '100%'};
+
+    ${props =>
+        props.className === "row primary" && props.colorTheme && `
+        background-color: ${COLORTHEME[props.colorTheme].primary};
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))
+    `}
+
+    ${props =>
+        props.className === "row secondary" && props.colorTheme && `
+        background-color: ${COLORTHEME[props.colorTheme].seacondary};
+    `}
+
+    ${props =>
+        props.className === "row tertiary" && props.colorTheme && `
+        background-color: ${COLORTHEME[props.colorTheme].tertiary};
+    `}
 `
 
-const View: React.FC<IViewProps> = ({ children, width, height, flexDirection }) => {
+const View: React.FC<IViewProps> = ({ children, className, colorTheme }) => {
     return <ViewContainer
-        width={width}
-        height={height}
-        flexDirection={flexDirection}
+        className={className}
+        colorTheme={colorTheme}
     >
         {children}
     </ViewContainer>

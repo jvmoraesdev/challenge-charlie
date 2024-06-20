@@ -10,12 +10,12 @@ const CardContainer = styled.div`
     flex-direction: column;
     /* border-radius: 0.8rem; */
     box-shadow: 4px 4px 2px ${COLORS.gray};
-    width: 40vw;
-    height: 100vh;
+    width: 50%;
+    height: 100%;
 
     @media (max-width: ${screenBreakpoints.tabletsMD}){
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
     }
 `
 

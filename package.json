@@ -1,6 +1,6 @@
 {
   "name": "challenge-charlie",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Charlie Challenge application: Weather Forecast",
   "main": "index.js",
   "scripts": {

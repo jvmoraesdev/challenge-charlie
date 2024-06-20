@@ -1,7 +1,7 @@
 import { IChildrenProps } from "./childrenProps.interface"
+import { ColorTheme } from "./types";
 
 export interface IViewProps extends IChildrenProps {
-    height?: string;
-    width?: string;
-    flexDirection?: string;
+    className?: string;
+    colorTheme?: ColorTheme;
 }

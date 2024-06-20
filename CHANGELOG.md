@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2024-06-20
+
+### Added
+- creation of multiple format types in the text component
+- creation of temperature component
+- new types and interfaces added
+- layout adjusted to a version closer to the final prototype
+- added color theme
+- mocked interface variables added
+- layout mocked variables added
+
+## Fixed
+- minor layout fixes
+
+
 ## [0.3.0] - 2024-06-20
 
 ### Added
