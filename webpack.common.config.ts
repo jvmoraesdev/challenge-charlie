@@ -17,7 +17,16 @@ const config: webpack.Configuration = {
             {
                 test: /\.(css|scss)$/,
                 use: ["style-loader", "css-loader"],
-            }
+            },
+            {
+                test: /\.svg$/,
+                issuer: /\.tsx?$/,
+                use: ['@svgr/webpack']
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                use: ['file-loader']
+            },
         ]
     },
     resolve: {

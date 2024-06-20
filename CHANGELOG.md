@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-06-20
+
+### Added
+- basic layout
+- screen breakpoints to create responsive components
+- basic compnontens
+- util dependencies: @svgr/webpack, file-loader and styled-compnontens
+- colors.ts' file
+
+##Fixed
+- improved webpack settings to allow .svg files
+- improved typescript settings to allow .svg files
+
 ## [0.2.1] - 2024-06-18
 
 ### Fixed
