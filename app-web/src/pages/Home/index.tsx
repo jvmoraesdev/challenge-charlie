@@ -10,9 +10,13 @@ import { ColorTheme, TemperaturaScale, WindDirection } from "../../interfaces/ty
 import { ITemperature } from "../../interfaces/api.interface";
 import TemperatureView from "../../components/TemperatureView";
 import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
+import useGeoLocation from "../../hooks/getGeoLocation";
 
 const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
+
+
+    const { latitude, longitude } = useGeoLocation();
 
     const colorTheme: ColorTheme = 'gray'
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius')
