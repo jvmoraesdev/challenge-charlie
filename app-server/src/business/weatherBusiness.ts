@@ -15,10 +15,15 @@ class BackgroundBusiness {
                 config.OPEN_WEATHER_API
                 + '/data/2.5/forecast?q=' + cidade + '&appid=' + config.OPEN_WEATHER_API_KEY);
             const data = await response.json();
+
+
+            if (data.cod !== '200') {
+                throw new Error("City not found");
+            }
+
             return this.filterWeatherForecast(data.list)
         } catch (error) {
-            console.error('Error fetching background image:', error);
-            throw new Error('Failed to fetch background image');
+            throw new Error('Failed to fetch weather forecast');
         }
     }
 
