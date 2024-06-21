@@ -21,7 +21,7 @@ const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature, te
                 {day}
             </Text>
             <Text as="h2">
-                {temperature[temperatureScale]} º{temperatureScale == 'celsius' ? 'C' : 'F'}
+                {temperature ? temperature[temperatureScale] : '-'} º{temperatureScale === 'celsius' ? 'C' : 'F'}
             </Text>
         </StyledView>
     )

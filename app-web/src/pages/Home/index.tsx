@@ -7,32 +7,45 @@ import View from '../../components/View';
 import Text from '../../components/Text';
 import Input from "../../components/Input";
 import { ColorTheme, TemperaturaScale, WindDirection } from "../../interfaces/types";
-import { ITemperature } from "../../interfaces/api.interface";
 import TemperatureView from "../../components/TemperatureView";
 import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 import useGeoLocation from "../../hooks/getGeoLocation";
+import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
 
 const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
+    const {
+        temperature,
+        weather,
+        humidity,
+        pressure,
+        windSpeed,
+        windDirection,
+        tomorowTemperature,
+        afterTomorrowTemperature,
+        colorTheme,
+        fetchWeatherForecast
+    } = useWeatherForecastContext();
 
 
     const { latitude, longitude } = useGeoLocation();
 
-    const colorTheme: ColorTheme = 'gray'
-    const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius')
-    const temperature: ITemperature = {
-        celsius: 27,
-        fahrenheit: 80
-    }
-    const windDirection: WindDirection = 'SO'
-    const windSpeed: number = 6.4
-    const humidity: number = 78
-    const pressure: number = 1003
+    useEffect(() => {
+        console.log(colorTheme);
+        setLoadOverlay(false)
+    }, [colorTheme])
+
+    const [loadOverlay, setLoadOverlay] = useState<boolean>(true);
+    const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius');
+
+    useEffect(() => {
+        // fetchWeatherForecast('Kairo')
+    }, [])
+
 
     const handleTemperatureScaleChange = () => {
-        temperatureScale == 'celsius'
-            ? setTemperatureScale('fahrenheit')
-            : setTemperatureScale('celsius')
+        //Change the current temperature scale from celsious to fahrenheit and vice versa
+        setTemperatureScale(temperatureScale === 'celsius' ? 'fahrenheit' : 'celsius')
     }
 
     return (
@@ -40,59 +53,67 @@ const Home: React.FC = () => {
             backgroundImage={backgroundImage}
 
         >
-            <Card>
-                <Input />
-                <View className="row primary" colorTheme={colorTheme}>
-                    <View className="column primary">
-                    </View>
-                    <View className="column secondary">
-                        <TemperatureView
-                            day="HOJE"
-                            temperature={temperature}
-                            temperatureScale={temperatureScale}
-                        />
+            {loadOverlay ?
+                (
+                    <Card></Card>
+                )
+                :
+                (
+                    <Card>
+                        <Input />
+                        <View className="row primary" colorTheme={colorTheme}>
+                            <View className="column primary">
+                            </View>
+                            <View className="column secondary">
+                                <TemperatureView
+                                    day="HOJE"
+                                    temperature={temperature}
+                                    temperatureScale={temperatureScale}
+                                />
 
-                        <Text as="h1">
-                            Ensolarado
-                        </Text>
+                                <Text as="h1">
+                                    {weather ?? '-'}
+                                </Text>
 
-                        <Text as="h3">
-                            Vento: {windDirection} {windSpeed}
-                        </Text>
-                        <Text as="h3">
-                            Humidade: {humidity}%
-                        </Text>
-                        <Text as="h3">
-                            Pressão: {pressure}hPA
-                        </Text>
+                                <Text as="h3">
+                                    Vento: {windDirection ?? '-'} {windSpeed ?? '-'}
+                                </Text>
+                                <Text as="h3">
+                                    Humidade: {humidity ?? '-'}%
+                                </Text>
+                                <Text as="h3">
+                                    Pressão: {pressure ?? '-'}hPA
+                                </Text>
 
-                    </View>
-                </View>
-                <View className="row secondary" colorTheme={colorTheme}>
-                    <View className="column primary">
-                    </View>
+                            </View>
+                        </View>
+                        <View className="row secondary" colorTheme={colorTheme}>
+                            <View className="column primary">
+                            </View>
 
-                    <View className="column secondary">
-                        <TemperatureView
-                            day="AMANHÃ"
-                            temperature={temperature}
-                            temperatureScale={temperatureScale}
-                        />
-                    </View>
-                </View>
-                <View className="row tertiary" colorTheme={colorTheme}>
-                    <View className="column primary">
-                    </View>
+                            <View className="column secondary">
+                                <TemperatureView
+                                    day="AMANHÃ"
+                                    temperature={tomorowTemperature}
+                                    temperatureScale={temperatureScale}
+                                />
+                            </View>
+                        </View>
+                        <View className="row tertiary" colorTheme={colorTheme}>
+                            <View className="column primary">
+                            </View>
 
-                    <View className="column secondary">
-                        <TemperatureView
-                            day="DEPOIS DE AMANHÃ"
-                            temperature={temperature}
-                            temperatureScale={temperatureScale}
-                        />
-                    </View>
-                </View>
-            </Card>
+                            <View className="column secondary">
+                                <TemperatureView
+                                    day="DEPOIS DE AMANHÃ"
+                                    temperature={afterTomorrowTemperature}
+                                    temperatureScale={temperatureScale}
+                                />
+                            </View>
+                        </View>
+                    </Card>
+                )
+            }
         </Main>
     )
 

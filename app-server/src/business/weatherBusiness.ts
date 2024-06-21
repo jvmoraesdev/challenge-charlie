@@ -15,7 +15,6 @@ class BackgroundBusiness {
                 config.OPEN_WEATHER_API
                 + '/data/2.5/forecast?q=' + cidade + '&appid=' + config.OPEN_WEATHER_API_KEY);
             const data = await response.json();
-            console.log(data)
             return this.filterWeatherForecast(data.list)
         } catch (error) {
             console.error('Error fetching background image:', error);
@@ -26,7 +25,7 @@ class BackgroundBusiness {
     filterWeatherForecast(list: any): IWeatherForecast {
 
         return {
-            temperture: {
+            temperature: {
                 fahrenheit: convertKelvinToFahrenheit(list[0].main.temp),
                 celsius: convertKelvinToCelsius(list[0].main.temp)
             },
