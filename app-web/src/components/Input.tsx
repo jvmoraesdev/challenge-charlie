@@ -1,13 +1,15 @@
 import styled from 'styled-components'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { COLORS } from '../assets/colors'
 import { screenBreakpoints } from '../assets/screenBreakpoints'
 import { IChildrenProps } from '../interfaces/childrenProps.interface'
 import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg'
+import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
+import { useLocationContext } from '../stores/LocationProvider'
 
 const InputContainer = styled.input`
     width: 100%;
-    height: 100%;
+    height: fit-content;
     color: ${COLORS.gray};
     font-family: Roboto;
     font-size: 30px;
@@ -16,6 +18,7 @@ const InputContainer = styled.input`
 
     &:focus{
         outline: none;
+        border: none
     }
 `
 
@@ -36,12 +39,37 @@ const StyledCompassIcon = styled(CompassIcon)`
     margin-inline: 10px;
 `
 
+
 const Input: React.FC<IChildrenProps> = ({ children }) => {
+    const { city } = useLocationContext()
+    const { fetchWeatherForecast } = useWeatherForecastContext();
+
+    const [inputText, setInputText] = useState<string>('')
+
+    useEffect(() => {
+        if (city) {
+            setInputText(city)
+        }
+    }, [city])
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            fetchWeatherForecast(inputText);
+        }
+    };
+
 
     return (
-        <InputView>
+        <InputView >
             <StyledCompassIcon />
-            <InputContainer>{children}</InputContainer >
+            <InputContainer
+                type='text'
+                value={inputText}
+                onChange={(e) => {
+                    setInputText(e.target.value)
+                }}
+                onKeyDown={handleKeyPress}
+            />
         </InputView>
     )
 }

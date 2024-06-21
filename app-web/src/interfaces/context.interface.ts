@@ -10,3 +10,8 @@ export interface IWeatherForecastContextType extends IWeatherForecast {
     fetchWeatherForecast: (city: string) => void;
     colorTheme: ColorTheme;
 }
+
+export interface ILocationContextType {
+    city: string,
+    fetchLocation: (latitude: string, longitude: string) => void
+}

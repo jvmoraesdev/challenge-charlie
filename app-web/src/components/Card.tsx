@@ -8,9 +8,10 @@ const CardContainer = styled.div`
     align-self: center;
     display: flex;
     flex-direction: column;
-    /* box-shadow: 4px 4px 2px ${COLORS.gray}; */
+    box-shadow: 4px 4px 2px ${COLORS.gray};
+    /* border-radius: 10px; */
     width: 50%;
-    height: 100%;
+    height: 80%;
 
     @media (max-width: ${screenBreakpoints.tabletsMD}){
         width: 100%;

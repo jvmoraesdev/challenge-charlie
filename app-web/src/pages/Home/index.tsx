@@ -11,9 +11,11 @@ import TemperatureView from "../../components/TemperatureView";
 import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 import useGeoLocation from "../../hooks/getGeoLocation";
 import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
+import { useLocationContext } from "../../stores/LocationProvider";
 
 const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
+    const { city, fetchLocation } = useLocationContext();
     const {
         temperature,
         weather,
@@ -39,8 +41,16 @@ const Home: React.FC = () => {
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius');
 
     useEffect(() => {
-        // fetchWeatherForecast('Kairo')
-    }, [])
+        if (latitude && longitude) {
+            fetchLocation(latitude, longitude)
+        }
+    }, [latitude, longitude])
+
+    useEffect(() => {
+        if (city) {
+            fetchWeatherForecast(city)
+        }
+    }, [city])
 
 
     const handleTemperatureScaleChange = () => {

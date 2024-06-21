@@ -1,11 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import backgroundApi from '../api/backgroundApi';
-import { IWeatherForecastContextType } from '../interfaces/context.interface';
-import config from '../config/config';
-import { IChildrenProps } from '../interfaces/childrenProps.interface';
+import React, { createContext, useContext, useState } from 'react';
 import weatherForecastApi from '../api/weatherForecastApi';
-import { ITemperature, IWeatherForecast } from '../interfaces/weatherForecast.interface';
+import { IChildrenProps } from '../interfaces/childrenProps.interface';
+import { IWeatherForecastContextType } from '../interfaces/context.interface';
 import { ColorTheme } from '../interfaces/types';
+import { ITemperature, IWeatherForecast } from '../interfaces/weatherForecast.interface';
 
 
 const WeatherForecastContext = createContext<IWeatherForecastContextType | undefined>(undefined);
@@ -50,12 +48,24 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
                 setAfterTomorrowTemperature(weatherForecast.afterTomorrowTemperature)
             })
             .catch((error: Error) => {
+                clearStates()
                 console.error('Error getting weather forecast:', error);
             });
     };
 
+    function clearStates() {
+        setColorTheme(getColorTheme());
+        setTemperature(undefined);
+        setWeather(undefined);
+        setWindSpeed(undefined);
+        setWindDirection(undefined);
+        setHumidity(undefined);
+        setPressure(undefined);
+        setTomorowTemperature(undefined);
+        setAfterTomorrowTemperature(undefined);
+    }
+
     function getColorTheme(temperature?: number): ColorTheme {
-        console.log(temperature)
         if (!temperature) {
             return 'gray'
         }

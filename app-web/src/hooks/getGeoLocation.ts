@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const useGeoLocation = () => {
-    const [latitude, setLatitude] = useState<number>();
-    const [longitude, setLongitude] = useState<number>();
+    const [latitude, setLatitude] = useState<string>();
+    const [longitude, setLongitude] = useState<string>();
     const [permissionDenied, setPermissionDenied] = useState(false);
 
     useEffect(() => {
@@ -10,8 +10,8 @@ const useGeoLocation = () => {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(
                     function (position) {
-                        setLatitude(position.coords.latitude);
-                        setLongitude(position.coords.longitude);
+                        setLatitude(position.coords.latitude.toString());
+                        setLongitude(position.coords.longitude.toString());
                     },
                     function (error) {
                         console.error(error)

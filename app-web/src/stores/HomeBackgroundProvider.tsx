@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import backgroundApi from '../api/backgroundApi';
-import { IBackgroundImageContextType } from '../interfaces/context.interface';
-import config from '../config/config';
 import { IChildrenProps } from '../interfaces/childrenProps.interface';
+import { IBackgroundImageContextType } from '../interfaces/context.interface';
 
 
 const BackgroundImageContext = createContext<IBackgroundImageContextType | undefined>(undefined);
