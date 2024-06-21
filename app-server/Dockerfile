@@ -7,7 +7,8 @@ ENV NODE_ENV=${NODE_ENV}
 
 COPY package*.json ./
 RUN npm install --silent
-COPY . .
+COPY . ./
 
-ENTRYPOINT [ "npm", "run", "dev" ]
+EXPOSE 4200
 
+ENTRYPOINT [ "npm", "run", "start" ]

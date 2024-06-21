@@ -1,25 +1,47 @@
 version: '3'
 services:
-    dev:
+    dev-web:
         build:
-            context: .
+            context: ./app-web
             dockerfile: Dockerfile
             args:
                 - NODE_ENV=development
         ports:
             - "8080:8080"
         env_file:
-            - .env.development
+            - ./app-web/.env.development
         volumes:
-            - .:/app
+            - ./app-web:/app
 
-    prod:
+    prod-web:
         build:
-            context: .
+            context: ./app-web
             dockerfile: Dockerfile.prod
             args:
                 - NODE_ENV=production
         ports:
             - "3001:3000"
         env_file:
-            - .env.production
+            - ./app-web/.env.production
+    api-dev:
+        build:
+            context: ./app-server
+            dockerfile: Dockerfile
+            args:
+                - NODE_ENV=development
+        ports:
+            - "4200:4200"
+        env_file:
+            - ./app-server/.env.development
+        volumes:
+            - ./app-server:/app
+    api-prod:
+        build:
+            context: ./app-server
+            dockerfile: Dockerfile.prod
+            args:
+                - NODE_ENV=production
+        ports:
+            - "3333:3333"
+        env_file:
+            - ./app-server/.env.production

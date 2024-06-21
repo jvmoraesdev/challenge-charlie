@@ -7,17 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-06-21
+
+### Added
+- dockerfiles and docker structure for app-server (dev and prod)
+- created app-server folder
+- updated docker-compose to feature app-server containers
+
 ## [0.4.2] - 2024-06-20
 
 ### Added
-- Created app-server folder
-- Migrate front to app-web folder
+- created app-server folder
+- migrate front to app-web folder
 
 ## [0.4.1] - 2024-06-20
 
 ### Added
-- WIP: bing api request
-- WIP: stores and context
+- wip: bing api request
+- wip: stores and context
 
 ## [0.4.0] - 2024-06-20
 
