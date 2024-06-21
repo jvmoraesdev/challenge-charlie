@@ -9,7 +9,7 @@ const devConfig: webpack.Configuration = {
         historyApiFallback: true,
         hot: true,
         host: '0.0.0.0',
-        port: 8080
+        // port: 8080
     },
     devtool: 'inline-source-map',
     watchOptions: {

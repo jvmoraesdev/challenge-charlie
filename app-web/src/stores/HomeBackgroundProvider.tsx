@@ -1,23 +1,21 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import BingApi from '../api/bingApi';
-import { BingImageContextType } from '../interfaces/context.interface';
+import backgroundApi from '../api/backgroundApi';
+import { IBackgroundImageContextType } from '../interfaces/context.interface';
 import config from '../config/config';
 import { IChildrenProps } from '../interfaces/childrenProps.interface';
 
 
+const BackgroundImageContext = createContext<IBackgroundImageContextType | undefined>(undefined);
 
-
-const BingImageContext = createContext<BingImageContextType | undefined>(undefined);
-
-export const useBingImageContext = () => {
-    const context = useContext(BingImageContext);
+export const useBackgroundImageContext = () => {
+    const context = useContext(BackgroundImageContext);
     if (!context) {
-        throw new Error('useBingImageContext is required');
+        throw new Error('useBackgroundImageContext is required');
     }
     return context;
 };
 
-export const BingImageProvider: React.FC<IChildrenProps> = ({ children }) => {
+export const BackgroundImageProvider: React.FC<IChildrenProps> = ({ children }) => {
     const [backgroundImage, setBackgroundImage] = useState<string>('');
 
     useEffect(() => {
@@ -25,29 +23,29 @@ export const BingImageProvider: React.FC<IChildrenProps> = ({ children }) => {
     }, []);
 
     const fetchBackgroundImage = () => {
-        BingApi.getBackgroundImage()
+        backgroundApi.getBackgroundImage()
             .then((data: any) => {
-                if (!data || !data.images || data.images.length <= 0) {
-                    console.error('No image data received from Bing API');
+                if (!data || !data.success) {
+                    console.error('No image data received from server');
                     return;
                 }
 
-                const bingImage = config.BING_API + data.images[0].url
-                setBackgroundImage(bingImage);
+                const imageUrl = data.data.imageUrl;
+                setBackgroundImage(imageUrl);
             })
             .catch((error: Error) => {
-                console.error('Error fetching Bing image:', error);
+                console.error('Error getting background image:', error);
             });
     };
 
-    const contextValue: BingImageContextType = {
+    const contextValue: IBackgroundImageContextType = {
         backgroundImage,
         fetchBackgroundImage
     };
 
     return (
-        <BingImageContext.Provider value={contextValue}>
+        <BackgroundImageContext.Provider value={contextValue}>
             {children}
-        </BingImageContext.Provider>
+        </BackgroundImageContext.Provider>
     );
 };

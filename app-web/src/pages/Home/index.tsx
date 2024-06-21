@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './styles.css';
 import config from '../../config/config'
 import Card from '../../components/Card'
@@ -9,10 +9,10 @@ import Input from "../../components/Input";
 import { ColorTheme, TemperaturaScale, WindDirection } from "../../interfaces/types";
 import { ITemperature } from "../../interfaces/api.interface";
 import TemperatureView from "../../components/TemperatureView";
-import { useBingImageContext } from "../../stores/HomeBackgroundProvider";
+import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 
 const Home: React.FC = () => {
-    const { backgroundImage } = useBingImageContext();
+    const { backgroundImage, fetchBackgroundImage } = useBackgroundImageContext();
 
     const colorTheme: ColorTheme = 'red'
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius')
@@ -31,10 +31,10 @@ const Home: React.FC = () => {
             : setTemperatureScale('celsius')
     }
 
-
     return (
         <Main
-            backgroundImage={backgroundImage || ''}
+            backgroundImage={backgroundImage}
+
         >
             <Card>
                 <Input />

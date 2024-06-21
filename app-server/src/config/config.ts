@@ -1,9 +1,9 @@
 import { IConfig } from '../interfaces/config.interface'
-
+// TODO fix-.env
 const config: IConfig = {
-    APP_NAME: process.env.APP_NAME || 'Weather Forecast - DEV',
     BING_API: process.env.BING_API || 'https://www.bing.com/',
-    APP_API: process.env.APP_API || 'http://localhost:4200/api'
+    PORT: process.env.PORT || '4200',
+    NODE_ENV: process.env.NODE_ENV || 'development'
 }
 
 export default config;

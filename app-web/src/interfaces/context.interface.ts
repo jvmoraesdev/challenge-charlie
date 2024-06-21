@@ -1,4 +1,4 @@
-export interface BingImageContextType {
+export interface IBackgroundImageContextType {
     backgroundImage: string;
     fetchBackgroundImage: () => void;
 }
