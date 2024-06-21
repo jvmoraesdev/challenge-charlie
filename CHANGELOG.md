@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.1] - 2024-06-21
+
+### Added
+- util folder
+- util function to convert hex color to rgba
+
+### FIXED
+- adjuted theme color style
+- view opacity
+
 ## [0.6.0] - 2024-06-21
 
 ### Added

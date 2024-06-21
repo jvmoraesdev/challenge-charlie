@@ -1,4 +1,4 @@
-export type ColorTheme = "red" | "blue" | "yellow"
+export type ColorTheme = "red" | "blue" | "yellow" | "gray"
 
 export type TextType = "h1" | "h2" | "h3"
 

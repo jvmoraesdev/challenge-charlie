@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 import { IViewProps } from '../interfaces/view.interface'
 import { COLORS, COLORTHEME } from '../assets/colors'
+import { hexToRgba } from '../utils/convertHextoRgba';
 
 const ViewContainer = styled.div<IViewProps>`
     display: flex;
@@ -10,18 +11,17 @@ const ViewContainer = styled.div<IViewProps>`
 
     ${props =>
         props.className === "row primary" && props.colorTheme && `
-        background-color: ${COLORTHEME[props.colorTheme].primary};
-        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))
-    `}
+        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].primary, 0.6)};
+    `};
 
     ${props =>
         props.className === "row secondary" && props.colorTheme && `
-        background-color: ${COLORTHEME[props.colorTheme].seacondary};
+        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].secondary, 0.95)};
     `}
 
     ${props =>
         props.className === "row tertiary" && props.colorTheme && `
-        background-color: ${COLORTHEME[props.colorTheme].tertiary};
+        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].tertiary, 1)};
     `}
 `
 

@@ -8,8 +8,7 @@ const CardContainer = styled.div`
     align-self: center;
     display: flex;
     flex-direction: column;
-    /* border-radius: 0.8rem; */
-    box-shadow: 4px 4px 2px ${COLORS.gray};
+    /* box-shadow: 4px 4px 2px ${COLORS.gray}; */
     width: 50%;
     height: 100%;
 

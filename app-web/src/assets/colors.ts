@@ -10,20 +10,27 @@ export const COLORS = {
 
 export const COLORTHEME = {
     yellow: {
-        primary: '#FFFF99',
-        seacondary: '#FFCC00',
-        tertiary: '#FF9900'
+        primary: '#F4F300',
+        secondary: '#FACC05',
+        tertiary: '#B79404'
     },
 
     red: {
-        primary: '#FF9999',
-        seacondary: '#FF6666',
-        tertiary: '#FF3333'
+        primary: '#F52000',
+        secondary: '#DE0700',
+        tertiary: '#9E0500'
     },
 
     blue: {
         primary: '#99CCFF',
-        seacondary: '#6699FF',
+        secondary: '#6699FF',
         tertiary: '#3366FF'
+
+    },
+
+    gray: {
+        primary: '#929695',
+        secondary: '#9EA3A1',
+        tertiary: '#6D706F'
     }
 }

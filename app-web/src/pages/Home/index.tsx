@@ -12,9 +12,9 @@ import TemperatureView from "../../components/TemperatureView";
 import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 
 const Home: React.FC = () => {
-    const { backgroundImage, fetchBackgroundImage } = useBackgroundImageContext();
+    const { backgroundImage } = useBackgroundImageContext();
 
-    const colorTheme: ColorTheme = 'red'
+    const colorTheme: ColorTheme = 'gray'
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius')
     const temperature: ITemperature = {
         celsius: 27,
