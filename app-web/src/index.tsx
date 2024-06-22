@@ -6,17 +6,20 @@ import './styles/global.css'
 import { BackgroundImageProvider } from './stores/HomeBackgroundProvider';
 import { WeatherForecastProvider } from './stores/WeatherForecastProvider';
 import { LocationProvider } from './stores/LocationProvider';
+import { LoadingProvider } from './stores/LoadingProvider';
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
 
 root.render(
     <React.StrictMode>
-        <LocationProvider>
-            <WeatherForecastProvider>
-                <BackgroundImageProvider>
-                    <Home />
-                </BackgroundImageProvider>
-            </WeatherForecastProvider>
-        </LocationProvider>
+        <LoadingProvider>
+            <LocationProvider>
+                <WeatherForecastProvider>
+                    <BackgroundImageProvider>
+                        <Home />
+                    </BackgroundImageProvider>
+                </WeatherForecastProvider>
+            </LocationProvider>
+        </LoadingProvider>
     </React.StrictMode>
 );

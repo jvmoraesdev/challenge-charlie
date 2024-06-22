@@ -15,3 +15,8 @@ export interface ILocationContextType {
     city: string,
     fetchLocation: (latitude: string, longitude: string) => void
 }
+
+export interface ILoadingContextType {
+    loading: boolean,
+    setLoading: (isLoading: boolean) => void
+}

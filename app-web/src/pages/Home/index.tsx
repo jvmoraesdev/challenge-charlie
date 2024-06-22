@@ -13,9 +13,12 @@ import useGeoLocation from "../../hooks/getGeoLocation";
 import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
 import { useLocationContext } from "../../stores/LocationProvider";
 import Icon from "../../components/Icon";
+import LoadingOverlay from "../../components/loadingOverlay";
+import { useLoadingContext } from "../../stores/LoadingProvider";
 
 const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
+    const { setLoading } = useLoadingContext();
     const { city, fetchLocation } = useLocationContext();
     const {
         temperature,
@@ -35,10 +38,9 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         console.log(colorTheme);
-        setLoadOverlay(false)
+        setLoading(false)
     }, [colorTheme])
 
-    const [loadOverlay, setLoadOverlay] = useState<boolean>(true);
     const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius');
 
     useEffect(() => {
@@ -60,73 +62,68 @@ const Home: React.FC = () => {
     }
 
     return (
-        <Main
-            backgroundImage={backgroundImage}
+        <>
+            <LoadingOverlay />
+            <Main
+                backgroundImage={backgroundImage}
 
-        >
-            {loadOverlay ?
-                (
-                    <Card></Card>
-                )
-                :
-                (
-                    <Card>
-                        <Input />
-                        <View className="row primary" colorTheme={colorTheme}>
-                            <View className="column primary">
-                                <Icon />
-                            </View>
-                            <View className="column secondary">
-                                <TemperatureView
-                                    day="HOJE"
-                                    temperature={temperature}
-                                    temperatureScale={temperatureScale}
-                                />
-
-                                <Text as="h1">
-                                    {weather ?? '-'}
-                                </Text>
-
-                                <Text as="h3">
-                                    Vento: {windDirection ?? '-'} {windSpeed ?? '-'}km/h
-                                </Text>
-                                <Text as="h3">
-                                    Humidade: {humidity ?? '-'}%
-                                </Text>
-                                <Text as="h3">
-                                    Pressão: {pressure ?? '-'}hPA
-                                </Text>
-
-                            </View>
+            >
+                <Card>
+                    <Input />
+                    <View className="row primary" colorTheme={colorTheme}>
+                        <View className="column primary">
+                            <Icon />
                         </View>
-                        <View className="row secondary" colorTheme={colorTheme}>
-                            <View className="column primary">
-                            </View>
+                        <View className="column secondary">
+                            <TemperatureView
+                                day="HOJE"
+                                temperature={temperature}
+                                temperatureScale={temperatureScale}
+                            />
 
-                            <View className="column secondary">
-                                <TemperatureView
-                                    day="AMANHÃ"
-                                    temperature={tomorowTemperature}
-                                    temperatureScale={temperatureScale}
-                                />
-                            </View>
-                        </View>
-                        <View className="row tertiary" colorTheme={colorTheme}>
-                            <View className="column primary">
-                            </View>
+                            <Text as="h1">
+                                {weather ?? '-'}
+                            </Text>
 
-                            <View className="column secondary">
-                                <TemperatureView
-                                    day="DEPOIS DE AMANHÃ"
-                                    temperature={afterTomorrowTemperature}
-                                    temperatureScale={temperatureScale}
-                                />
-                            </View>
+                            <Text as="h3">
+                                Vento: {windDirection ?? '-'} {windSpeed ?? '-'}km/h
+                            </Text>
+                            <Text as="h3">
+                                Humidade: {humidity ?? '-'}%
+                            </Text>
+                            <Text as="h3">
+                                Pressão: {pressure ?? '-'}hPA
+                            </Text>
+
                         </View>
-                    </Card>
-                )
-            }
-        </Main>
+                    </View>
+                    <View className="row secondary" colorTheme={colorTheme}>
+                        <View className="column primary">
+                        </View>
+
+                        <View className="column secondary">
+                            <TemperatureView
+                                day="AMANHÃ"
+                                temperature={tomorowTemperature}
+                                temperatureScale={temperatureScale}
+                            />
+                        </View>
+                    </View>
+                    <View className="row tertiary" colorTheme={colorTheme}>
+                        <View className="column primary">
+                        </View>
+
+                        <View className="column secondary">
+                            <TemperatureView
+                                day="DEPOIS DE AMANHÃ"
+                                temperature={afterTomorrowTemperature}
+                                temperatureScale={temperatureScale}
+                            />
+                        </View>
+                    </View>
+                </Card>
+            </Main>
+        </>
     )
 
 }

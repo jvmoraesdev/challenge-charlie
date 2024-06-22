@@ -18,18 +18,19 @@ const StyledH1 = styled.h1`
     font-size: 28px;
     padding-top: 10px;
     padding-bottom: 20px;
-    font-weight: lighter;
+    font-weight: 500;
 `
 
 const StyledH2 = styled.h2`
     ${baseTextStyle}
     font-size: 20px;
-    font-weight: lighter;
+    font-weight: 500;
 `
 
 const StyledH3 = styled.h3`
     ${baseTextStyle}
     font-size: 18px;
+    font-weight: 400;
 `
 
 const Text: React.FC<ITextProps> = ({ children, className, as }) => {

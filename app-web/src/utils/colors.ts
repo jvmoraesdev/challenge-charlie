@@ -10,7 +10,7 @@ export const COLORS = {
 
 export const COLORTHEME = {
     yellow: {
-        primary: '#F4F300',
+        primary: '#FAC100',
         secondary: '#FACC05',
         tertiary: '#B79404'
     },
