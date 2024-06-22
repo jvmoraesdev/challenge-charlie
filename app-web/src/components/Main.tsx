@@ -20,7 +20,7 @@ const MainContainer = styled.div<IMainProps>`
     align-items: center;
     justify-content: center;
 
-    @media screen and (max-width: ${screenBreakpoints.tabletsMD}){
+    @media screen and (max-width: ${screenBreakpoints.mobileSM}){
         display: block;
     }
 `

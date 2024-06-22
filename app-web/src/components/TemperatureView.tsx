@@ -4,6 +4,7 @@ import Text from './Text'
 import View from './View'
 import styled from 'styled-components'
 import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
+import { screenBreakpoints } from '../utils/screenBreakpoints'
 
 const StyledView = styled(View)`
     display: flex;
@@ -13,6 +14,11 @@ const StyledView = styled(View)`
     height: 80px;
     justify-content: space-evenly;
     padding-top: 10px;
+
+    @media screen and (max-width: ${screenBreakpoints.laptopsLG}){
+        padding-top: 0px;
+        height: 60px;
+    }
 `
 
 const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature }) => {

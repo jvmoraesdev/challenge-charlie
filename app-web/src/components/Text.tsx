@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { COLORS } from '../utils/colors';
 import { ITextProps } from '../interfaces/text.interface';
+import { COLORS } from '../utils/colors';
 
 const baseTextStyle = css`
     height: auto;
