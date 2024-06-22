@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.1] - 2024-06-22
+
+### Fixed
+- remove logs
+- update .svg icons
+- remove DOM minor console errors on custom tags
+
 ## [0.13.0] - 2024-06-22
 
 ### Added

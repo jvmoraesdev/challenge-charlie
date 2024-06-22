@@ -54,11 +54,11 @@ const Home: React.FC = () => {
         <>
             <LoadingOverlay />
             <Main
-                backgroundImage={backgroundImage}
+                backgroundimage={backgroundImage}
             >
                 <Card>
                     <Input />
-                    <View className="row primary" colorTheme={colorTheme}>
+                    <View className="row primary" colortheme={colorTheme}>
                         <View className="column primary">
                             <Icon />
                         </View>
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
 
                         </View>
                     </View>
-                    <View className="row secondary" colorTheme={colorTheme}>
+                    <View className="row secondary" colortheme={colorTheme}>
                         <View className="column primary">
                         </View>
 
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
                             />
                         </View>
                     </View>
-                    <View className="row tertiary" colorTheme={colorTheme}>
+                    <View className="row tertiary" colortheme={colorTheme}>
                         <View className="column primary">
                         </View>
 

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import React from 'react'
-import { IViewProps } from '../interfaces/view.interface'
-import { COLORS, COLORTHEME } from '../utils/colors'
+import React from 'react';
+import styled from 'styled-components';
+import { IViewProps } from '../interfaces/view.interface';
+import { COLORTHEME } from '../utils/colors';
 import { hexToRgba } from '../utils/convertHextoRgba';
 
 const ViewContainer = styled.div<IViewProps>`
@@ -10,25 +10,25 @@ const ViewContainer = styled.div<IViewProps>`
     justify-content: center;
 
     ${props =>
-        props.className === "row primary" && props.colorTheme && `
-        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].primary, 0.6)};
+        props.className === "row primary" && props.colortheme && `
+        background-color: ${hexToRgba(COLORTHEME[props.colortheme].primary, 0.6)};
     `};
 
     ${props =>
-        props.className === "row secondary" && props.colorTheme && `
-        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].secondary, 0.95)};
+        props.className === "row secondary" && props.colortheme && `
+        background-color: ${hexToRgba(COLORTHEME[props.colortheme].secondary, 0.95)};
     `}
 
     ${props =>
-        props.className === "row tertiary" && props.colorTheme && `
-        background-color: ${hexToRgba(COLORTHEME[props.colorTheme].tertiary, 1)};
+        props.className === "row tertiary" && props.colortheme && `
+        background-color: ${hexToRgba(COLORTHEME[props.colortheme].tertiary, 1)};
     `}
 `
 
-const View: React.FC<IViewProps> = ({ children, className, colorTheme }) => {
+const View: React.FC<IViewProps> = ({ children, className, colortheme }) => {
     return <ViewContainer
         className={className}
-        colorTheme={colorTheme}
+        colortheme={colortheme}
     >
         {children}
     </ViewContainer>

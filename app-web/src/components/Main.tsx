@@ -10,8 +10,8 @@ const MainContainer = styled.div<IMainProps>`
 
     /* a background is displayed as a fixed gradient if no image is found */
     background: linear-gradient(${COLORS.mainGradientTop}, ${COLORS.mainGradientBottom});
-    ${props => props.backgroundImage && `
-        background-image: url(${props.backgroundImage});
+    ${props => props.backgroundimage && `
+        background-image: url(${props.backgroundimage});
         background-size: cover;
         background-position: center;
     `}
@@ -25,9 +25,9 @@ const MainContainer = styled.div<IMainProps>`
     }
 `
 
-const Main: React.FC<IMainProps> = ({ children, backgroundImage }) => {
+const Main: React.FC<IMainProps> = ({ children, backgroundimage }) => {
     return <MainContainer
-        backgroundImage={backgroundImage}
+        backgroundimage={backgroundimage}
     >
         {children}
     </MainContainer>

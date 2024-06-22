@@ -16,6 +16,5 @@ app.use(cors(corsOptions))
 app.use('/api', routes)
 
 app.listen(port, () => {
-    console.log('Running in ' + config.NODE_ENV)
-    console.log(`- http://localhost:${port}`);
+    console.log(`Running in ${config.NODE_ENV}: http://localhost:${port}`)
 });

@@ -26,7 +26,6 @@ export const LocationProvider: React.FC<IChildrenProps> = ({ children }) => {
                     console.error('No location data received from server');
                     return;
                 }
-                console.log(data)
                 const location: string = data.data;
                 setCity(location)
             })

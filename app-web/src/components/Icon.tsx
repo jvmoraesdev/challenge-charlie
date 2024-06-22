@@ -42,16 +42,8 @@ const iconMap: { [key: string]: React.FC } = {
 
 const Icon: React.FC = () => {
     const { weatherIcon } = useWeatherForecastContext();
-    const [selectedIcon, setselectedIcon] = useState<string>('45')
 
-    useEffect(() => {
-        if (weatherIcon) {
-            setselectedIcon(weatherIcon)
-            console.log(selectedIcon, iconMap[selectedIcon])
-        }
-    }, [weatherIcon])
-
-    let IconComponent = iconMap[selectedIcon] || Icon45;
+    const IconComponent = weatherIcon ? iconMap[weatherIcon] : Icon45;
 
     return <StyledIcon as={IconComponent} />
 }
