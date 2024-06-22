@@ -20,6 +20,7 @@ const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
     const { setLoading } = useLoadingContext();
     const { city, fetchLocation } = useLocationContext();
+    const { latitude, longitude } = useGeoLocation();
     const {
         temperature,
         weather,
@@ -30,18 +31,12 @@ const Home: React.FC = () => {
         tomorowTemperature,
         afterTomorrowTemperature,
         colorTheme,
-        fetchWeatherForecast
+        fetchWeatherForecast,
     } = useWeatherForecastContext();
 
-
-    const { latitude, longitude } = useGeoLocation();
-
     useEffect(() => {
-        console.log(colorTheme);
         setLoading(false)
     }, [colorTheme])
-
-    const [temperatureScale, setTemperatureScale] = useState<TemperaturaScale>('celsius');
 
     useEffect(() => {
         if (latitude && longitude) {
@@ -55,18 +50,11 @@ const Home: React.FC = () => {
         }
     }, [city])
 
-
-    const handleTemperatureScaleChange = () => {
-        //Change the current temperature scale from celsious to fahrenheit and vice versa
-        setTemperatureScale(temperatureScale === 'celsius' ? 'fahrenheit' : 'celsius')
-    }
-
     return (
         <>
             <LoadingOverlay />
             <Main
                 backgroundImage={backgroundImage}
-
             >
                 <Card>
                     <Input />
@@ -78,7 +66,6 @@ const Home: React.FC = () => {
                             <TemperatureView
                                 day="HOJE"
                                 temperature={temperature}
-                                temperatureScale={temperatureScale}
                             />
 
                             <Text as="h1">
@@ -105,7 +92,6 @@ const Home: React.FC = () => {
                             <TemperatureView
                                 day="AMANHÃ"
                                 temperature={tomorowTemperature}
-                                temperatureScale={temperatureScale}
                             />
                         </View>
                     </View>
@@ -117,7 +103,6 @@ const Home: React.FC = () => {
                             <TemperatureView
                                 day="DEPOIS DE AMANHÃ"
                                 temperature={afterTomorrowTemperature}
-                                temperatureScale={temperatureScale}
                             />
                         </View>
                     </View>

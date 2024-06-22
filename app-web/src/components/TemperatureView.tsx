@@ -3,6 +3,7 @@ import { ITemperatureViewProps } from '../interfaces/temperatureView.interface'
 import Text from './Text'
 import View from './View'
 import styled from 'styled-components'
+import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
 
 const StyledView = styled(View)`
     display: flex;
@@ -14,14 +15,24 @@ const StyledView = styled(View)`
     padding-top: 10px;
 `
 
-const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature, temperatureScale }) => {
+const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature }) => {
+    const { currentTemperatureScale, setCurrentTemperatureScale } = useWeatherForecastContext();
+
+
+    const handleChangeTemperatureScale = () => {
+        //Change the current temperature scale from celsious to fahrenheit and vice versa
+        setCurrentTemperatureScale(currentTemperatureScale === 'celsius' ? 'fahrenheit' : 'celsius')
+    }
+
     return (
         <StyledView>
             <Text as="h2" >
                 {day}
             </Text>
-            <Text as="h2">
-                {temperature ? temperature[temperatureScale] : '-'} º{temperatureScale === 'celsius' ? 'C' : 'F'}
+            <Text as="h2"
+                onClick={handleChangeTemperatureScale}
+            >
+                {temperature ? temperature[currentTemperatureScale] : '-'} º{currentTemperatureScale === 'celsius' ? 'C' : 'F'}
             </Text>
         </StyledView>
     )

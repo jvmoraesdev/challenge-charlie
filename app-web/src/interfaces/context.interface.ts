@@ -1,4 +1,4 @@
-import { ColorTheme } from "./types";
+import { ColorTheme, TemperaturaScale } from "./types";
 import { IWeatherForecast } from "./weatherForecast.interface";
 
 export interface IBackgroundImageContextType {
@@ -7,8 +7,10 @@ export interface IBackgroundImageContextType {
 }
 
 export interface IWeatherForecastContextType extends IWeatherForecast {
-    fetchWeatherForecast: (city: string) => void;
     colorTheme: ColorTheme;
+    currentTemperatureScale: TemperaturaScale;
+    fetchWeatherForecast: (city: string) => void;
+    setCurrentTemperatureScale: (scale: TemperaturaScale) => void
 }
 
 export interface ILocationContextType {

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 import weatherForecastApi from '../api/weatherForecastApi';
 import { IChildrenProps } from '../interfaces/childrenProps.interface';
 import { IWeatherForecastContextType } from '../interfaces/context.interface';
-import { ColorTheme } from '../interfaces/types';
+import { ColorTheme, TemperaturaScale } from '../interfaces/types';
 import { ITemperature, IWeatherForecast } from '../interfaces/weatherForecast.interface';
 
 
@@ -28,6 +28,8 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
     const [afterTomorrowTemperature, setAfterTomorrowTemperature] = useState<ITemperature | undefined>();
     const [weatherIcon, setWeatherIcon] = useState<string | undefined>('45');
     const [colorTheme, setColorTheme] = useState<ColorTheme>('gray');
+
+    const [currentTemperatureScale, setCurrentTemperatureScale] = useState<TemperaturaScale>('celsius')
 
     const fetchWeatherForecast = async (city: string) => {
         await weatherForecastApi.getWeatherForecast(city)
@@ -92,6 +94,8 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
         afterTomorrowTemperature,
         colorTheme,
         weatherIcon,
+        currentTemperatureScale,
+        setCurrentTemperatureScale,
         fetchWeatherForecast
     };
 

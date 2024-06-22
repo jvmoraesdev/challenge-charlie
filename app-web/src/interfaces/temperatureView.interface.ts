@@ -1,8 +1,7 @@
-import { ITemperature } from "./api.interface";
-import { TemperaturaScale } from "./types";
+
+import { ITemperature } from "./weatherForecast.interface";
 
 export interface ITemperatureViewProps {
-    temperature: ITemperature;
+    temperature?: ITemperature;
     day: string;
-    temperatureScale: TemperaturaScale;
 }
