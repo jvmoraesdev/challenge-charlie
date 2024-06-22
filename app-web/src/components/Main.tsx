@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import React from 'react'
 import { IMainProps } from '../interfaces/main.interface'
-import { COLORS } from '../assets/colors'
-import { screenBreakpoints } from '../assets/screenBreakpoints'
+import { COLORS } from '../utils/colors'
+import { screenBreakpoints } from '../utils/screenBreakpoints'
 
 const MainContainer = styled.div<IMainProps>`
     width: 100vw;

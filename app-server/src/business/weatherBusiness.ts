@@ -36,7 +36,8 @@ class BackgroundBusiness {
             },
             humidity: list[0].main.humidity,
             pressure: list[0].main.pressure,
-            weather: list[0].weather.main,
+            weather: list[0].weather[0].main,
+            weatherIcon: this.getIconId(list[0].weather[0].icon),
             windSpeed: convertMeterPerSecondToKilometerPerHour(list[0].wind.speed),
             windDirection: convertAngleToCardinalDirections(list[0].wind.deg),
             tomorowTemperature: {
@@ -48,6 +49,32 @@ class BackgroundBusiness {
                 celsius: convertKelvinToCelsius(list[2].main.temp)
             }
         }
+    }
+
+    //Function that relates the icons provided by open weather to the meteoicon icons
+    getIconId(openWeatherIcon: string): string {
+        const mapIcons: { [key: string]: string } = {
+            '01d': '02',
+            '01n': '02',
+            '02d': '08',
+            '02n': '08',
+            '03d': '14',
+            '03n': '14',
+            '04d': '25',
+            '04n': '25',
+            '09d': '18',
+            '09n': '18',
+            '10d': '17',
+            '10n': '17',
+            '11d': '27',
+            '11n': '27',
+            '13d': '23',
+            '13n': '23',
+            '50d': '13',
+            '50n': '13'
+        }
+
+        return mapIcons[openWeatherIcon]
     }
 }
 

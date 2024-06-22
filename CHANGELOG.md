@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2024-06-22
+
+### Added
+- weather icon
+- import and modification of all svg meteoIcons icons
+- map to relate open weather icons into meteoIcons icons
+
+### Fixed
+- current weather fix
+
 ## [0.10.1] - 2024-06-21
 
 ### Fixed

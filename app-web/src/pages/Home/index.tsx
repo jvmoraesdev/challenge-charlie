@@ -12,6 +12,7 @@ import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 import useGeoLocation from "../../hooks/getGeoLocation";
 import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
 import { useLocationContext } from "../../stores/LocationProvider";
+import Icon from "../../components/Icon";
 
 const Home: React.FC = () => {
     const { backgroundImage } = useBackgroundImageContext();
@@ -73,6 +74,7 @@ const Home: React.FC = () => {
                         <Input />
                         <View className="row primary" colorTheme={colorTheme}>
                             <View className="column primary">
+                                <Icon />
                             </View>
                             <View className="column secondary">
                                 <TemperatureView
@@ -86,7 +88,7 @@ const Home: React.FC = () => {
                                 </Text>
 
                                 <Text as="h3">
-                                    Vento: {windDirection ?? '-'} {windSpeed ?? '-'}
+                                    Vento: {windDirection ?? '-'} {windSpeed ?? '-'}km/h
                                 </Text>
                                 <Text as="h3">
                                     Humidade: {humidity ?? '-'}%

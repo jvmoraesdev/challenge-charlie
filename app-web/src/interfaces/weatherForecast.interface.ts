@@ -6,6 +6,7 @@ export interface IWeatherForecast {
     humidity?: number,
     pressure?: number,
     tomorowTemperature?: ITemperature
+    weatherIcon?: string,
     afterTomorrowTemperature?: ITemperature
 }
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import { IViewProps } from '../interfaces/view.interface'
-import { COLORS, COLORTHEME } from '../assets/colors'
+import { COLORS, COLORTHEME } from '../utils/colors'
 import { hexToRgba } from '../utils/convertHextoRgba';
 
 const ViewContainer = styled.div<IViewProps>`

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { COLORS } from '../assets/colors';
+import { COLORS } from '../utils/colors';
 import { ITextProps } from '../interfaces/text.interface';
 
 const baseTextStyle = css`
     height: auto;
     color: ${COLORS.white};
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Helvetica Neue', Sans-Serif;
     font-style: unset;
     font-weight: unset;
     padding: 0;

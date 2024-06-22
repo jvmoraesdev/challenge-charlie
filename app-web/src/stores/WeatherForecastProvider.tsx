@@ -26,6 +26,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
     const [pressure, setPressure] = useState<number | undefined>();
     const [tomorowTemperature, setTomorowTemperature] = useState<ITemperature | undefined>();
     const [afterTomorrowTemperature, setAfterTomorrowTemperature] = useState<ITemperature | undefined>();
+    const [weatherIcon, setWeatherIcon] = useState<string | undefined>('../assets/45.svg');
     const [colorTheme, setColorTheme] = useState<ColorTheme>('gray');
 
     const fetchWeatherForecast = async (city: string) => {
@@ -40,6 +41,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
                 setColorTheme(getColorTheme(weatherForecast.temperature?.celsius))
                 setTemperature(weatherForecast.temperature)
                 setWeather(weatherForecast.weather)
+                setWeatherIcon(weatherForecast.weatherIcon)
                 setWindSpeed(weatherForecast.windSpeed)
                 setWindDirection(weatherForecast.windDirection)
                 setHumidity(weatherForecast.humidity)
@@ -63,13 +65,13 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
         setPressure(undefined);
         setTomorowTemperature(undefined);
         setAfterTomorrowTemperature(undefined);
+        setWeatherIcon('45')
     }
 
     function getColorTheme(temperature?: number): ColorTheme {
         if (!temperature) {
             return 'gray'
         }
-
         if (temperature < 15) {
             return 'blue'
         } else if (temperature > 35) {
@@ -89,6 +91,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
         tomorowTemperature,
         afterTomorrowTemperature,
         colorTheme,
+        weatherIcon,
         fetchWeatherForecast
     };
 

@@ -1,6 +1,7 @@
 export interface IWeatherForecast {
     temperature: ITemperature,
     weather: string,
+    weatherIcon: string,
     windSpeed: number,
     windDirection: string,
     humidity: number,
