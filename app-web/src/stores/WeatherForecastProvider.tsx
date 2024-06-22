@@ -26,7 +26,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
     const [pressure, setPressure] = useState<number | undefined>();
     const [tomorowTemperature, setTomorowTemperature] = useState<ITemperature | undefined>();
     const [afterTomorrowTemperature, setAfterTomorrowTemperature] = useState<ITemperature | undefined>();
-    const [weatherIcon, setWeatherIcon] = useState<string | undefined>('../assets/45.svg');
+    const [weatherIcon, setWeatherIcon] = useState<string | undefined>('45');
     const [colorTheme, setColorTheme] = useState<ColorTheme>('gray');
 
     const fetchWeatherForecast = async (city: string) => {

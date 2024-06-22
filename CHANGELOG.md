@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.1] - 2024-06-22
+
+### Fixed
+- icon 2.svg and 8.svg fixed
+
 ## [0.11.0] - 2024-06-22
 
 ### Added

@@ -28,8 +28,8 @@ const StyledIcon = styled.svg`
 `
 
 const iconMap: { [key: string]: React.FC } = {
-    '2': Icon2,
-    '8': Icon8,
+    '02': Icon2,
+    '08': Icon8,
     '13': Icon13,
     '14': Icon14,
     '17': Icon17,
@@ -47,10 +47,11 @@ const Icon: React.FC = () => {
     useEffect(() => {
         if (weatherIcon) {
             setselectedIcon(weatherIcon)
+            console.log(selectedIcon, iconMap[selectedIcon])
         }
     }, [weatherIcon])
 
-    const IconComponent = iconMap[selectedIcon] || Icon45;
+    let IconComponent = iconMap[selectedIcon] || Icon45;
 
     return <StyledIcon as={IconComponent} />
 }
