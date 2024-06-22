@@ -1,4 +1,4 @@
-import { ColorTheme, TemperaturaScale } from "./types";
+import { ColorTheme, SupportedLanguages, TemperaturaScale } from "./types";
 import { IWeatherForecast } from "./weatherForecast.interface";
 
 export interface IBackgroundImageContextType {

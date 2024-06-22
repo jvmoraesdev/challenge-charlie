@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
-import './styles.css';
-import config from '../../config/config'
-import Card from '../../components/Card'
-import Main from '../../components/Main'
-import View from '../../components/View';
-import Text from '../../components/Text';
-import Input from "../../components/Input";
-import { ColorTheme, TemperaturaScale, WindDirection } from "../../interfaces/types";
-import TemperatureView from "../../components/TemperatureView";
-import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
-import useGeoLocation from "../../hooks/getGeoLocation";
-import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
-import { useLocationContext } from "../../stores/LocationProvider";
+import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import Card from '../../components/Card';
 import Icon from "../../components/Icon";
+import Input from "../../components/Input";
+import Main from '../../components/Main';
+import TemperatureView from "../../components/TemperatureView";
+import Text from '../../components/Text';
+import View from '../../components/View';
+import LanguageSwitcher from "../../components/languageSwitcher";
 import LoadingOverlay from "../../components/loadingOverlay";
+import useGeoLocation from "../../hooks/getGeoLocation";
+import { useBackgroundImageContext } from "../../stores/HomeBackgroundProvider";
 import { useLoadingContext } from "../../stores/LoadingProvider";
+import { useLocationContext } from "../../stores/LocationProvider";
+import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
+
+import './styles.css';
 
 const Home: React.FC = () => {
+    const { t } = useTranslation();
+
     const { backgroundImage } = useBackgroundImageContext();
     const { setLoading } = useLoadingContext();
     const { city, fetchLocation } = useLocationContext();
@@ -53,6 +56,7 @@ const Home: React.FC = () => {
     return (
         <>
             <LoadingOverlay />
+            <LanguageSwitcher />
             <Main
                 backgroundimage={backgroundImage}
             >
@@ -64,22 +68,22 @@ const Home: React.FC = () => {
                         </View>
                         <View className="column secondary">
                             <TemperatureView
-                                day="HOJE"
+                                day="today"
                                 temperature={temperature}
                             />
 
                             <Text as="h1">
-                                {weather ?? '-'}
+                                {weather ? t(weather.toLowerCase()) : '-'}
                             </Text>
 
                             <Text as="h3">
-                                Vento: {windDirection ?? '-'} {windSpeed ?? '-'}km/h
+                                {t('wind')} : {windDirection ?? '-'} {windSpeed ?? '-'}km/h
                             </Text>
                             <Text as="h3">
-                                Humidade: {humidity ?? '-'}%
+                                {t('humidity')}: {humidity ?? '-'}%
                             </Text>
                             <Text as="h3">
-                                Pressão: {pressure ?? '-'}hPA
+                                {t('pressure')}: {pressure ?? '-'}hPA
                             </Text>
 
                         </View>
@@ -90,7 +94,7 @@ const Home: React.FC = () => {
 
                         <View className="column secondary">
                             <TemperatureView
-                                day="AMANHÃ"
+                                day="tomorrow"
                                 temperature={tomorowTemperature}
                             />
                         </View>
@@ -101,7 +105,7 @@ const Home: React.FC = () => {
 
                         <View className="column secondary">
                             <TemperatureView
-                                day="DEPOIS DE AMANHÃ"
+                                day="afterTomorrow"
                                 temperature={afterTomorrowTemperature}
                             />
                         </View>

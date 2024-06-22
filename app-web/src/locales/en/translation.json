@@ -1,0 +1,23 @@
+{
+    "wind": "Wind",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "afterTomorrow": "After Tomorrow",
+    "pressure": "Pressure",
+    "humidity": "Humidity",
+    "clouds": "Clouds",
+    "thunderstorm": "Thunderstorm",
+    "drizzle": "Drizzle",
+    "rain": "Rain",
+    "snow": "Snow",
+    "mist": "Mist",
+    "smoke": "Smoke",
+    "haze": "haze",
+    "dust": "Dust",
+    "fog": "Fog",
+    "sand": "Sand",
+    "ash": "Volcanic Ash",
+    "squall": "Squalls",
+    "tornado": "Tornado",
+    "clear": "Clar Sky"
+}

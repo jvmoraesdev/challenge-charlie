@@ -6,3 +6,4 @@ export type TemperaturaScale = "celsius" | "fahrenheit"
 
 export type WindDirection = "N" | "L" | "S" | "O" | "NE" | "SE" | "SO" | "NO"
 
+export type SupportedLanguages = "en" | "pt-br"

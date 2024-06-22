@@ -8,10 +8,10 @@ const CardContainer = styled.div`
     align-self: center;
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 4px 2px ${COLORS.gray};
+    box-shadow: 2px 2px 1px ${COLORS.gray};
+    border-radius: 10px;
     width: 50%;
     height: 80%;
-    border-radius: 10px;
     overflow: hidden;
 
     @media (max-width: ${screenBreakpoints.mobileSM}){

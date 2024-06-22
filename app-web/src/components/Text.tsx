@@ -2,11 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { ITextProps } from '../interfaces/text.interface';
 import { COLORS } from '../utils/colors';
+import { appFonts } from '../utils/fonts';
 
 const baseTextStyle = css`
     height: auto;
     color: ${COLORS.white};
-    font-family: 'Roboto', 'Helvetica Neue', Sans-Serif;
+    font-family: ${appFonts};
     font-style: unset;
     font-weight: unset;
     padding: 0;

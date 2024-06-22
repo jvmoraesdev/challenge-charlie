@@ -5,6 +5,7 @@ import View from './View'
 import styled from 'styled-components'
 import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
 import { screenBreakpoints } from '../utils/screenBreakpoints'
+import { useTranslation } from "react-i18next";
 
 const StyledView = styled(View)`
     display: flex;
@@ -22,6 +23,8 @@ const StyledView = styled(View)`
 `
 
 const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature }) => {
+    const { t } = useTranslation();
+
     const { currentTemperatureScale, setCurrentTemperatureScale } = useWeatherForecastContext();
 
 
@@ -32,8 +35,8 @@ const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature }) 
 
     return (
         <StyledView>
-            <Text as="h2" >
-                {day}
+            <Text as="h2">
+                {t(day).toUpperCase()}
             </Text>
             <Text as="h2"
                 onClick={handleChangeTemperatureScale}

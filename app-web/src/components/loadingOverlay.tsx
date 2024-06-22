@@ -27,6 +27,7 @@ const StyledLoader = styled.div<ILoadingOverlay>`
     display: ${props => props.loading ? 'flex' : 'none'};
     align-items: center;
     justify-content: center;
+    z-index: 2;
 `
 
 const StyledCompassIcon = styled(CompassIcon)`

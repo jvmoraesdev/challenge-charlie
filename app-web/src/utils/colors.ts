@@ -1,6 +1,8 @@
 export const COLORS = {
     white: '#FFF',
     gray: 'gray',
+    lightGray: '#dddddd',
+    black: '#000',
 
     mainGradientTop: '#dddddd',
     mainGradientBottom: '#7e7e7e',

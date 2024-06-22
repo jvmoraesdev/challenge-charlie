@@ -1,12 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 
-import Home from './pages/Home'
-import './styles/global.css'
+import Home from './pages/Home';
 import { BackgroundImageProvider } from './stores/HomeBackgroundProvider';
-import { WeatherForecastProvider } from './stores/WeatherForecastProvider';
-import { LocationProvider } from './stores/LocationProvider';
 import { LoadingProvider } from './stores/LoadingProvider';
+import { LocationProvider } from './stores/LocationProvider';
+import { WeatherForecastProvider } from './stores/WeatherForecastProvider';
+
+import './locales/i18n';
+import './styles/global.css';
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
 
