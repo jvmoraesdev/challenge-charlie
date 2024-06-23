@@ -14,6 +14,7 @@
     },
     "include": [
         "src/**/*",
+        "public/**/*",
         "src/interfaces/svg.d.ts"
     ],
     "exclude": ["node_modules"]

@@ -12,6 +12,8 @@ import './styles/global.css';
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
 
+document.title = process.env.APP_NAME || 'Weather Forecast'
+
 root.render(
     <React.StrictMode>
         <LoadingProvider>

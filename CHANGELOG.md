@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.1] - 2024-06-23
+
+### Added
+- app icon
+- change expose port in production
+- jest dependences
+
+### Fixed
+- NODE_ENV bug on docker development
+- correct expose port on development
+
 ## [0.14.0] - 2024-06-22
 
 ### Added

@@ -16,6 +16,7 @@ import { useLocationContext } from "../../stores/LocationProvider";
 import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider";
 
 import './styles.css';
+import config from "../../config/config";
 
 const Home: React.FC = () => {
     const { t } = useTranslation();
