@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { COLORS } from '../utils/colors'
-import { screenBreakpoints } from '../utils/screenBreakpoints'
 import { IChildrenProps } from '../interfaces/childrenProps.interface'
 import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg'
+import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
 import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
 import { useLocationContext } from '../stores/LocationProvider'
 
@@ -30,17 +30,26 @@ const InputView = styled.div`
     align-items: center;
     background-color: ${COLORS.white};
 `
-
-const StyledCompassIcon = styled(CompassIcon)`
+const StyledIcon = css`
     padding: 0.3rem;
     width: 70px;
     height: 70px;
     fill: ${COLORS.gray};
     margin-inline: 10px;
+
+`
+
+const StyledCompassIcon = styled(CompassIcon)`
+    ${StyledIcon}
+`
+
+const StyledSearchIcon = styled(SearchIcon)`
+    ${StyledIcon}
+    cursor: pointer;
 `
 
 
-const Input: React.FC<IChildrenProps> = ({ children }) => {
+const Input: React.FC = () => {
     const { city } = useLocationContext()
     const { fetchWeatherForecast } = useWeatherForecastContext();
 
@@ -70,6 +79,7 @@ const Input: React.FC<IChildrenProps> = ({ children }) => {
                 }}
                 onKeyDown={handleKeyPress}
             />
+            <StyledSearchIcon onClick={() => fetchWeatherForecast(inputText)} />
         </InputView>
     )
 }

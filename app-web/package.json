@@ -1,6 +1,6 @@
 {
   "name": "challenge-charlie-web",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "Charlie Challenge application: Weather Forecast -web",
   "main": "index.js",
   "scripts": {
@@ -44,6 +44,7 @@
     "file-loader": "^6.2.0",
     "http-proxy-middleware": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "ts-jest": "^29.1.5",
