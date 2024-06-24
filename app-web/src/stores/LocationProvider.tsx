@@ -2,11 +2,11 @@ import React, { createContext, useContext, useState } from 'react';
 import locationApi from '../api/locationApi';
 import { IChildrenProps } from '../interfaces/childrenProps.interface';
 import { ILocationContextType } from '../interfaces/context.interface';
-import { ColorTheme } from '../interfaces/types';
 
 
 const LocationContext = createContext<ILocationContextType | undefined>(undefined);
 
+// Does not allow execution if the context does not encompass the component.
 export const useLocationContext = () => {
     const context = useContext(LocationContext);
     if (!context) {
@@ -15,6 +15,7 @@ export const useLocationContext = () => {
     return context;
 };
 
+// Context responsible for storing the current city from the input.
 export const LocationProvider: React.FC<IChildrenProps> = ({ children }) => {
 
     const [city, setCity] = useState<string>('');
@@ -34,8 +35,7 @@ export const LocationProvider: React.FC<IChildrenProps> = ({ children }) => {
             });
     };
 
-
-
+    // Makes explicit the variables usable from the context.
     const contextValue: ILocationContextType = {
         city,
         fetchLocation

@@ -1,3 +1,5 @@
+// Function responsible for converting hexadecimal colors to RGBA, allowing us to specify opacity
+// for transparency levels in the color.
 export function hexToRgba(hex: string, opacity: number) {
     const bigint = parseInt(hex.slice(1), 16);
     const r = (bigint >> 16) & 255;

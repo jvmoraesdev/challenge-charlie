@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import React from 'react'
+import styled from 'styled-components'
 import { IChildrenProps } from '../interfaces/childrenProps.interface'
 import { COLORS } from '../utils/colors'
 import { screenBreakpoints } from '../utils/screenBreakpoints'
@@ -21,6 +21,7 @@ const CardContainer = styled.div`
     }
 `
 
+// Component that encompasses the central part of the application, creates a card containing the content of the widget.
 const Card: React.FC<IChildrenProps> = ({ children }) => {
     return <CardContainer>
         {children}

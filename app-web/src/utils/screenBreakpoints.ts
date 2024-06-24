@@ -1,5 +1,7 @@
 import { IScreenBreakpoints } from "../interfaces/screenBreakpoints.interface";
 
+// Stores the maximum resolution value for each device, aiding responsiveness by abstracting
+// the specific numbers and working with device categories instead.
 export const screenBreakpoints: IScreenBreakpoints = {
     mobileXS: '576px',
     mobileSM: '768px',

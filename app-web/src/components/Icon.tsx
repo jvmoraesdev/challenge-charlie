@@ -33,6 +33,7 @@ const iconMap: { [key: string]: React.FC } = {
     '45': Icon45,
 };
 
+// Component that renders the icon according to the value provided in the context.
 const Icon: React.FC = () => {
     const { weatherIcon } = useWeatherForecastContext();
 

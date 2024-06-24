@@ -17,9 +17,13 @@ import { useWeatherForecastContext } from "../../stores/WeatherForecastProvider"
 
 import './styles.css';
 
+// Main page of the application containing all components,
 const Home: React.FC = () => {
+    // receives the 't' variable from the translator which translates text according to the dictionary
+    // in the locales/{language}/translation.json folder.
     const { t } = useTranslation();
 
+    // Collects information from the contexts.
     const { backgroundImage } = useBackgroundImageContext();
     const { setLoading } = useLoadingContext();
     const { city, fetchLocation } = useLocationContext();
@@ -37,21 +41,24 @@ const Home: React.FC = () => {
         fetchWeatherForecast,
     } = useWeatherForecastContext();
 
-    useEffect(() => {
-        setLoading(false)
-    }, [colorTheme])
-
+    // Upon loading the screen and receiving latitude and longitude, call the function responsible for collecting the city.
     useEffect(() => {
         if (latitude && longitude) {
             fetchLocation(latitude, longitude)
         }
     }, [latitude, longitude])
 
+    // Upon collecting the city, call the function responsible for collecting the weather.
     useEffect(() => {
         if (city) {
             fetchWeatherForecast(city)
         }
     }, [city])
+
+    // When the theme is set (i.e., all weather data received), load the screen.
+    useEffect(() => {
+        setLoading(false)
+    }, [colorTheme])
 
     return (
         <>

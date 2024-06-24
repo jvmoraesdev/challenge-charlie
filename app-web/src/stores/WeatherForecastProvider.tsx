@@ -5,9 +5,9 @@ import { IWeatherForecastContextType } from '../interfaces/context.interface';
 import { ColorTheme, TemperaturaScale } from '../interfaces/types';
 import { ITemperature, IWeatherForecast } from '../interfaces/weatherForecast.interface';
 
-
 const WeatherForecastContext = createContext<IWeatherForecastContextType | undefined>(undefined);
 
+// Does not allow execution if the context does not encompass the component.
 export const useWeatherForecastContext = () => {
     const context = useContext(WeatherForecastContext);
     if (!context) {
@@ -16,6 +16,8 @@ export const useWeatherForecastContext = () => {
     return context;
 };
 
+// Context responsible for storing all weather information and the color theme used in the
+// application (since it changes according to today's temperature).
 export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) => {
 
     const [temperature, setTemperature] = useState<ITemperature | undefined>();
@@ -29,6 +31,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
     const [weatherIcon, setWeatherIcon] = useState<string | undefined>('45');
     const [colorTheme, setColorTheme] = useState<ColorTheme>('gray');
 
+    // Responsible for storing the temperature scale, which can be Celsius or Fahrenheit, used in screen switching.
     const [currentTemperatureScale, setCurrentTemperatureScale] = useState<TemperaturaScale>('celsius')
 
     const fetchWeatherForecast = async (city: string) => {
@@ -57,6 +60,8 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
             });
     };
 
+    // If the city is not found, this function is responsible for clearing the screen so that
+    // the user knows the city was not found.
     function clearStates() {
         setColorTheme(getColorTheme());
         setTemperature(undefined);
@@ -70,6 +75,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
         setWeatherIcon('45')
     }
 
+    // Sets the color theme of the application. If no temperature is provided, it defaults to the gray theme.
     function getColorTheme(temperature?: number): ColorTheme {
         if (!temperature) {
             return 'gray'
@@ -83,6 +89,7 @@ export const WeatherForecastProvider: React.FC<IChildrenProps> = ({ children }) 
         }
     }
 
+    // Makes explicit the variables usable from the context.
     const contextValue: IWeatherForecastContextType = {
         temperature,
         weather,

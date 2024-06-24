@@ -6,6 +6,7 @@ import { IBackgroundImageContextType } from '../interfaces/context.interface';
 
 const BackgroundImageContext = createContext<IBackgroundImageContextType | undefined>(undefined);
 
+// Does not allow execution if the context does not encompass the component.
 export const useBackgroundImageContext = () => {
     const context = useContext(BackgroundImageContext);
     if (!context) {
@@ -14,6 +15,7 @@ export const useBackgroundImageContext = () => {
     return context;
 };
 
+// Context responsible for storing the background from Bing.
 export const BackgroundImageProvider: React.FC<IChildrenProps> = ({ children }) => {
     const [backgroundImage, setBackgroundImage] = useState<string>('');
 
@@ -37,6 +39,7 @@ export const BackgroundImageProvider: React.FC<IChildrenProps> = ({ children }) 
             });
     };
 
+    // Makes explicit the variables usable from the context.
     const contextValue: IBackgroundImageContextType = {
         backgroundImage,
         fetchBackgroundImage

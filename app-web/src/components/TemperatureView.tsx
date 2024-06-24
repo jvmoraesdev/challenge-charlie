@@ -1,11 +1,11 @@
 import React from 'react'
-import { ITemperatureViewProps } from '../interfaces/temperatureView.interface'
-import Text from './Text'
-import View from './View'
+import { useTranslation } from "react-i18next"
 import styled from 'styled-components'
+import { ITemperatureViewProps } from '../interfaces/temperatureView.interface'
 import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
 import { screenBreakpoints } from '../utils/screenBreakpoints'
-import { useTranslation } from "react-i18next";
+import Text from './Text'
+import View from './View'
 
 const StyledView = styled(View)`
     display: flex;
@@ -21,7 +21,8 @@ const StyledView = styled(View)`
         height: 60px;
     }
 `
-
+// Component responsible for displaying the day and its temperature, it is repeated in the application,
+// so it's important to reduce it to a reusable component.
 const TemperatureView: React.FC<ITemperatureViewProps> = ({ day, temperature }) => {
     const { t } = useTranslation();
 

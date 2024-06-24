@@ -2,12 +2,14 @@ import { Request, Response } from 'express';
 import LocationBusiness from '../business/locationBusiness';
 
 class LocationController {
-    private locationBusiness: LocationBusiness;
 
+    // Constructor method of the business class.
+    private locationBusiness: LocationBusiness;
     constructor() {
         this.locationBusiness = new LocationBusiness();
     }
 
+    // Calls the function from the business logic and returns the standard response model.
     getLocation = async (req: Request, res: Response) => {
         try {
             const latitude = req.query.latitude as string

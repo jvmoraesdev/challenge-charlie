@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - wip: jest tests
 
+## [1.0.0] - 2024-06-24
+
+### Added
+- readme file added
+- documentation added
+
+### Fixed
+- cleanup in the Dockerfile of the app-server
+- adjustment in the location of the language switcher for smartphones
+
 ## [0.15.0] - 2024-06-23
 
 ### Added
@@ -62,8 +72,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - weather icon
-- import and modification of all svg meteoIcons icons
-- map to relate open weather icons into meteoIcons icons
+- import and modification of all svg meteocons icons
+- map to relate open weather icons into meteocons icons
 
 ### Fixed
 - current weather fix

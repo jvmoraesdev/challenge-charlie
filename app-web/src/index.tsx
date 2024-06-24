@@ -12,9 +12,12 @@ import './styles/global.css';
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
 
+// Dynamically modifies the tab text, allowing differentiation between development and production applications.
 document.title = process.env.APP_NAME || 'Weather Forecast'
 
 root.render(
+    // All contexts within the `React.StrictMode` and encompassing the application contained in the home,
+    // thus the context can be used.
     <React.StrictMode>
         <LoadingProvider>
             <LocationProvider>

@@ -9,6 +9,7 @@ import {
 } from '../utils/convertions'
 
 class BackgroundBusiness {
+    //Function responsible for returning today's weather and the forecast for the next two days from the API based on a provided city.
     async getWeatherForecastForTodayAndNextTwoDays(cidade: string) {
         try {
             const response = await fetch(
@@ -16,7 +17,7 @@ class BackgroundBusiness {
                 + '/data/2.5/forecast?q=' + cidade + '&appid=' + config.OPEN_WEATHER_API_KEY);
             const data = await response.json();
 
-
+            // Check if the city/town exists.
             if (data.cod !== '200') {
                 throw new Error("City not found");
             }
@@ -27,8 +28,9 @@ class BackgroundBusiness {
         }
     }
 
+    // Function responsible for transforming the OpenWeather API response into the JSON format used in the application,
+    // using the specified paths as per the API response format. Data requiring processing is handled in their respective functions.
     filterWeatherForecast(list: any): IWeatherForecast {
-
         return {
             temperature: {
                 fahrenheit: convertKelvinToFahrenheit(list[0].main.temp),
@@ -51,7 +53,7 @@ class BackgroundBusiness {
         }
     }
 
-    //Function that relates the icons provided by open weather to the meteoicon icons
+    //Function that relates the icons provided by open weather to the meteocons icons
     getIconId(openWeatherIcon: string): string {
         const mapIcons: { [key: string]: string } = {
             '01d': '02',
@@ -73,7 +75,6 @@ class BackgroundBusiness {
             '50d': '13',
             '50n': '13'
         }
-
         return mapIcons[openWeatherIcon]
     }
 }

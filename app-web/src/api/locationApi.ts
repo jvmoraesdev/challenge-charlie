@@ -8,6 +8,7 @@ const instance = axios.create({
     }
 })
 
+// Accesses the location route, returning the user's city based on their latitude and longitude.
 export default {
     getLocation: (latitude: string, longitude: string) => new Promise((resolve, reject) => {
         instance.get('/location?latitude=' + latitude + '&longitude=' + longitude)

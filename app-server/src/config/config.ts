@@ -1,5 +1,7 @@
 import { IConfig } from '../interfaces/config.interface'
 
+// Store in the conf variable the information coming from environment variables,
+// making it easier to use within the code while ensuring resilience in case any issues occur.
 const config: IConfig = {
     BING_API: process.env.BING_API || 'https://www.bing.com/',
     PORT: process.env.PORT || '4200',

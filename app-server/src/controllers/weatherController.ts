@@ -2,12 +2,14 @@ import { Request, Response } from 'express';
 import WeatherBusiness from '../business/weatherBusiness';
 
 class WeatherController {
-    private weatherBusiness: WeatherBusiness;
 
+    // Constructor method of the business class.
+    private weatherBusiness: WeatherBusiness;
     constructor() {
         this.weatherBusiness = new WeatherBusiness();
     }
 
+    // Calls the function from the business logic and returns the standard response model.
     getWeather = async (req: Request, res: Response) => {
         try {
             const city = req.query.city as string

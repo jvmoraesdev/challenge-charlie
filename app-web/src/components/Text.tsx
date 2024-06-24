@@ -52,6 +52,8 @@ const StyledH4 = styled.h4<ITextProps>`
     `}
 `
 
+// Component responsible for assembling the texts present in the application,
+// creating a reusable pattern, can receive h1, h2, h3, h4 and a onClick function.
 const Text: React.FC<ITextProps> = ({ children, as, onClick }) => {
     switch (as) {
         case 'h1':

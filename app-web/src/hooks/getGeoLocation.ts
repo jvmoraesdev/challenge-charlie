@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+
+// Create a hook responsible for retrieving the current location of the browser if allowed by the user.
 const useGeoLocation = () => {
     const [latitude, setLatitude] = useState<string>();
     const [longitude, setLongitude] = useState<string>();

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import i18n from '../locales/i18n';
 import { COLORS } from '../utils/colors';
 import { appFonts } from '../utils/fonts';
 import { screenBreakpoints } from '../utils/screenBreakpoints';
-import i18n from '../locales/i18n';
 
 
 const StyledButton = styled.button`
@@ -35,11 +35,12 @@ const StyledView = styled.div`
     box-shadow: 2px 2px 1px ${COLORS.gray};
 
     @media screen and (max-width: ${screenBreakpoints.tabletsMD}){
-        box-shadow: 2px 2px 1px ${COLORS.gray};
+        top: 80px;
         right: 0;
     }
 `
 
+// Component responsible for language change in the application, calling the pre-configured i18n library.
 const LanguageSwitcher: React.FC = () => {
 
     const changeLanguage = (lng: string) => {

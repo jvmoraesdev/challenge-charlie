@@ -8,6 +8,7 @@ const instance = axios.create({
     }
 })
 
+// Accesses the weather route and returns the weather information based on the payload city.
 export default {
     getWeatherForecast: (city: string) => new Promise((resolve, reject) => {
         instance.get('/weather?city=' + city)

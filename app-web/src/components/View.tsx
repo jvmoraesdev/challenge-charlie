@@ -24,7 +24,7 @@ const ViewContainer = styled.div<IViewProps>`
         background-color: ${hexToRgba(COLORTHEME[props.colortheme].tertiary, 1)};
     `}
 `
-
+// Component responsible for creating the views used in the main project card, modifying its color based on the received theme.
 const View: React.FC<IViewProps> = ({ children, className, colortheme }) => {
     return <ViewContainer
         className={className}

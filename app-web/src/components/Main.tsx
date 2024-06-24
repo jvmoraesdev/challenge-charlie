@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import React from 'react'
+import styled from 'styled-components'
 import { IMainProps } from '../interfaces/main.interface'
 import { COLORS } from '../utils/colors'
 import { screenBreakpoints } from '../utils/screenBreakpoints'
@@ -24,7 +24,7 @@ const MainContainer = styled.div<IMainProps>`
         display: block;
     }
 `
-
+// Main component that contains the entire application, uses the background from the Bing API when the context returns it.
 const Main: React.FC<IMainProps> = ({ children, backgroundimage }) => {
     return <MainContainer
         backgroundimage={backgroundimage}

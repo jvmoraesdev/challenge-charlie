@@ -2,12 +2,14 @@ import { Request, Response } from 'express';
 import BackgroundBusiness from '../business/backgroundBusiness';
 
 class BackgroundController {
-    private backgroundBusiness: BackgroundBusiness;
 
+    // Constructor method of the business class.
+    private backgroundBusiness: BackgroundBusiness;
     constructor() {
         this.backgroundBusiness = new BackgroundBusiness();
     }
 
+    // Calls the function from the business logic and returns the standard response model.
     getBackgroundImage = async (req: Request, res: Response) => {
         try {
             const imageData = await this.backgroundBusiness.getBackgroundImage();

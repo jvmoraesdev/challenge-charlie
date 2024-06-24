@@ -8,6 +8,7 @@ const instance = axios.create({
     }
 })
 
+// Accesses the background image route and returns its link.
 export default {
     getBackgroundImage: () => new Promise((resolve, reject) => {
         instance.get('/background')

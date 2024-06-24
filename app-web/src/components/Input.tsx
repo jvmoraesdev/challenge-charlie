@@ -1,11 +1,10 @@
-import styled, { css } from 'styled-components'
 import React, { useEffect, useState } from 'react'
-import { COLORS } from '../utils/colors'
-import { IChildrenProps } from '../interfaces/childrenProps.interface'
+import styled, { css } from 'styled-components'
 import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg'
 import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
-import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
 import { useLocationContext } from '../stores/LocationProvider'
+import { useWeatherForecastContext } from '../stores/WeatherForecastProvider'
+import { COLORS } from '../utils/colors'
 
 const InputContainer = styled.input`
     width: 100%;
@@ -31,7 +30,7 @@ const InputView = styled.div`
     background-color: ${COLORS.white};
 `
 const StyledIcon = css`
-    padding: 0.3rem;
+    padding: 5px;
     width: 70px;
     height: 70px;
     fill: ${COLORS.gray};
@@ -48,19 +47,23 @@ const StyledSearchIcon = styled(SearchIcon)`
     cursor: pointer;
 `
 
-
+// Component that renders the input area in the application, containing actions for searching
+// when the Enter key is pressed and when the search button is clicked. It is responsible for calling
+// the function in the API file that returns weather data.
 const Input: React.FC = () => {
     const { city } = useLocationContext()
     const { fetchWeatherForecast } = useWeatherForecastContext();
 
     const [inputText, setInputText] = useState<string>('')
 
+    // When the city is updated in the context after requesting to get the city, the value is directly inserted into the input.
     useEffect(() => {
         if (city) {
             setInputText(city)
         }
     }, [city])
 
+    // Triggers the request when the Enter key is pressed.
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             fetchWeatherForecast(inputText);

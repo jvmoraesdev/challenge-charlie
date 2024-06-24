@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useLoadingContext } from '../stores/LoadingProvider';
+import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg';
 import { ILoadingOverlay } from '../interfaces/loadingoverlay.interface';
-import { ReactComponent as CompassIcon } from '../assets/icons/compass.svg'
+import { useLoadingContext } from '../stores/LoadingProvider';
 import { COLORS } from '../utils/colors';
 
 const rotateAnimation = keyframes`
@@ -36,7 +36,7 @@ const StyledCompassIcon = styled(CompassIcon)`
     height: 100px;
     animation: ${rotateAnimation} 2s infinite;
 `
-
+// Component responsible for displaying an overlay when the API is initially called, preventing user access to the application.
 const LoadingOverlay: React.FC = () => {
     const { loading } = useLoadingContext();
 
