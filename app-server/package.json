@@ -1,10 +1,9 @@
 {
   "name": "challenge-charlie-server",
-  "version": "0.15.0",
+  "version": "1.0.1",
   "description": "Charlie Challenge application: Weather Forecast -server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "npx ts-node-dev --ignore-watch node_modules src/server.ts"
   },

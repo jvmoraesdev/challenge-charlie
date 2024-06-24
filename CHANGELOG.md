@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - wip: jest tests
 
+## [1.0.1] - 2024-06-24
+
+### Added
+- pull-request.txt file
+
 ## [1.0.0] - 2024-06-24
 
 ### Added
