@@ -43,6 +43,15 @@ const StyledH3 = styled.h3<ITextProps>`
     `}
 `
 
+const StyledH4 = styled.h4<ITextProps>`
+    ${baseTextStyle}
+    font-size: 13px;
+    color: ${COLORS.gray};
+    ${props => props.onClick && `
+       cursor: pointer;
+    `}
+`
+
 const Text: React.FC<ITextProps> = ({ children, as, onClick }) => {
     switch (as) {
         case 'h1':
@@ -51,6 +60,8 @@ const Text: React.FC<ITextProps> = ({ children, as, onClick }) => {
             return (<StyledH2 onClick={onClick}>{children}</StyledH2>)
         case 'h3':
             return (<StyledH3 onClick={onClick}>{children}</StyledH3>)
+        case 'h4':
+            return (<StyledH4 onClick={onClick}> {children}</StyledH4>)
         default:
             return (<StyledH3 onClick={onClick}>{children}</StyledH3>)
     }
